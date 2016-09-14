@@ -6,7 +6,7 @@ box        = ENV['BOX'] ? ENV['BOX'] : 'bento/ubuntu-14.04'
 st2user    = ENV['ST2USER'] ? ENV['ST2USER']: 'st2admin'
 st2passwd  = ENV['ST2PASSWORD'] ? ENV['ST2PASSWORD'] : 'Ch@ngeMe'
 bwc_license  = ENV['BWC_LICENSE'] ? ENV['BWC_LICENSE'] : 'bwc_license_key'
-bwc_suites = ENV['BWC_SUITES'] ? ENV['BWC_SUITES'] : 'abc'
+bwc_suites = ENV['BWC_SUITES'] ? ENV['BWC_SUITES'] : 'true'
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"

@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-hostname   = ENV['HOSTNAME'] ? ENV['HOSTNAME'] : 'bwcvagrant'
-box        = ENV['BOX'] ? ENV['BOX'] : 'bento/ubuntu-14.04'
+hostname   = ENV['ST2HOSTNAME'] ? ENV['ST2HOSTNAME'] : 'bwcvagrant'
+box        = ENV['ST2BOX'] ? ENV['ST2BOX'] : 'bento/ubuntu-14.04'
 st2user    = ENV['ST2USER'] ? ENV['ST2USER']: 'st2admin'
 st2passwd  = ENV['ST2PASSWORD'] ? ENV['ST2PASSWORD'] : 'Ch@ngeMe'
 bwc_license  = ENV['BWC_LICENSE'] ? ENV['BWC_LICENSE'] : 'bwc_license_key'

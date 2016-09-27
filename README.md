@@ -28,6 +28,23 @@ Clone the bwcvagrant repo, and start up Vagrant:
 ```bash
 git clone https://github.com/mrigeshpriyadarshi/bwcvagrant.git
 cd bwcvagrant
+```
+
+Update [bwc_setenv.sh](bwc_setenv.sh) (Mac or Linux) or [bwc_setenv.bat](bwc_setenv.bat) (Windows) with environment variables for BWC parameters.
+
+```
+export ST2HOSTNAME="bwcvagrant"
+export ST2BOX='bento/ubuntu-14.04'
+export ST2USER="st2admin"
+export ST2PASSWORD="Ch@ngeMe"
+export BWC_LICENSE="6ahsads6tycgbacg6cgjhcctdcb"
+export BWC_SUITES=true
+export ST2IPADDRESS="192.168.16.20"
+```
+
+Then, execute vagrant to create the instance
+
+```bash
 vagrant up
 ```
 
@@ -43,7 +60,7 @@ st2 --version
 st2 action list
 ```
 
-The BWC WebUI is available at https://192.168.16.21. The default st2admin user credentials are in
+The BWC WebUI is available at https://ST2IPADDRESS , if ST2IPADDRESS is set in [bwc_setenv.sh](bwc_setenv.sh) otherwise at https://192.168.16.21 (default) . The default st2admin user credentials are in
 [Vagrantfile](Vagrantfile), usually `st2admin:Ch@ngeMe`.
 
 You are in business! Go to [QuickStart](https://docs.stackstorm.com/install/bwc.html) and follow along.

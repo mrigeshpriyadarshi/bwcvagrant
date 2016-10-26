@@ -53,21 +53,22 @@ setToken()
 
 campus_ztp_pack()
 {
-  st2 run packs.install repo_url=https://github.com/tbraly/campus_ztp
+  st2 run packs.install repo_url=https://github.com/tbraly/campus_ztp packs=campus_ztp
 }
 
 vadc_pack()
 {
-  st2 run packs.install packs=vadc repo_url=https://github.com/tuxinvader/st2contrib
+  st2 run packs.install packs=vadc repo_url=https://github.com/tuxinvader/st2contrib packs=vadc
 }
 
 openstack_pack()
 {
-  st2 run packs.install repo_url=https://github.com/stackstorm/openstack
+  st2 run packs.install repo_url=https://github.com/stackstorm/openstack packs=openstack
 }
 
 bwc_packs()
 {
+  setToken
   for packs in ${BWC_PACKS}; do
       if [[ ${packs} == "openstack" ]]; then
           openstack_pack

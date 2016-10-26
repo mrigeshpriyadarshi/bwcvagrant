@@ -8,6 +8,7 @@ st2passwd  = ENV['ST2PASSWORD'] ? ENV['ST2PASSWORD'] : 'Ch@ngeMe'
 bwc_license  = ENV['BWC_LICENSE'] ? ENV['BWC_LICENSE'] : 'bwc_license_key'
 bwc_suites = ENV['BWC_SUITES'] ? ENV['BWC_SUITES'] : 'true'
 bwc_ip_address = ENV['ST2IPADDRESS'] ? ENV['ST2IPADDRESS'] : "192.168.16.21"
+bwc_packs = ENV['BWC_PACKS'] ? ENV['BWC_PACKS'] : 'docker'
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
@@ -39,7 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Start shell provisioning.
     bwc.vm.provision "shell" do |s|
       s.path = "scripts/install_bwc.sh"
-      s.args   = "#{st2user} #{st2passwd} #{bwc_license} #{bwc_suites}"
+      s.args   = "#{st2user} #{st2passwd} #{bwc_license} #{bwc_suites} '#{bwc_packs}' "
       s.privileged = false
     end
   end

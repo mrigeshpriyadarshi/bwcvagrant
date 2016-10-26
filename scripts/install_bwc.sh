@@ -71,9 +71,11 @@ bwc_packs()
   for packs in ${BWC_PACKS}; do
       if [[ ${packs} == "openstack" ]]; then
           openstack_pack
-      elif [[ ${packs} == "vadc"  ]] || [[ ${packs} == "vdx"  ]]; then
+      elif [[ ${packs} == "vadc" || ${packs} == "vdx"  ]]; then
+        echo "vdx"
           vadc_pack
-      elif [[ ${packs} == "campus_ztp"  ]] || [[ ${packs} == "icx"  ]]; then
+      elif [[ ${packs} == "campus_ztp" || ${packs} == "icx"  ]]; then
+        echo "icx"
           campus_ztp_pack
       else
           st2 run packs.install repo_url=https://github.com/stackstorm/st2contrib packs=${packs}

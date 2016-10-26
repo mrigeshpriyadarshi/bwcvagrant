@@ -46,6 +46,40 @@ bwc_install_suite()
   curl -sSL https://brocade.com/bwc/install/install-suite.sh  | bash -s -- --user=${USER} --password=${PSSWD} --license=${BWC_LICENSE_KEY} --suite=bwc-ipfabric-suite
 }
 
+setToken()
+{
+  export ST2_AUTH_TOKEN=$(st2 auth ${USER} -p ${PSSWD} -t)
+}
+
+campus_ztp_pack()
+{
+  st2 run packs.install repo_url=https://github.com/tbraly/campus_ztp
+}
+
+vadc_pack()
+{
+  st2 run packs.install packs=vadc repo_url=https://github.com/tuxinvader/st2contrib
+}
+
+openstack_pack()
+{
+  st2 run packs.install repo_url=https://github.com/stackstorm/openstack
+}
+
+bwc_packs()
+{
+  for packs in ${BWC_PACKS}; do
+      if [[ ${packs} == "openstack" ]]; then
+          openstack_pack
+      elif [[ ${packs} == "vadc"  ]] || [[ ${packs} == "vdx"  ]]; then
+          vadc_pack
+      elif [[ ${packs} == "campus_ztp"  ]] || [[ ${packs} == "icx"  ]]; then
+          campus_ztp_pack
+      else
+          st2 run packs.install repo_url=https://github.com/stackstorm/st2contrib packs=${packs}
+      fi
+  done
+}
 
 #### Main Script ####
 # Check argument passed and configure BWC accordingly
@@ -57,6 +91,7 @@ if [[ $# == 4 ]]; then
       bwc_install
     else
       bwc_install_suite
+      bwc_packs
     fi
 else
       echo -e "Please pass the params, e.g. set env ENV['BWC_LICENSE'], ENV['ST2PASSWORD'] and ENV['BWC_SUITES']"

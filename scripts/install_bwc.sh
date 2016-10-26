@@ -125,7 +125,7 @@ if [[ $# == 5 ]]; then
       bwc_install
     else
       BWC_PACKS=${5}
-      # bwc_install_suite
+      bwc_install_suite
       bwc_packs
     fi
 else

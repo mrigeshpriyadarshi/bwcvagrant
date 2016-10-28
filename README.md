@@ -40,6 +40,9 @@ export ST2PASSWORD="Ch@ngeMe"
 export BWC_LICENSE="6ahsads6tycgbacg6cgjhcctdcb"
 export BWC_SUITES=true
 export ST2IPADDRESS="192.168.16.20"
+
+export BWC_PACKS="docker vdx icx"
+
 ```
 
 Then, execute vagrant to create the instance

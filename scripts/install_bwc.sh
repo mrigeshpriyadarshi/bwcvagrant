@@ -27,10 +27,11 @@ os_check()
       echo "INFO:: *** Detected Distro is ${RHTEST} ***"
       hash curl 2>/dev/null || { sudo yum install -y curl; sudo yum install -y nss; }
       sudo yum update -y curl nss
+      sudo yum groupinstall "Development Tools"
     elif [[ -n "$DEBTEST" ]]; then
       echo "INFO:: *** Detected Distro is ${DEBTEST} ***"
       sudo apt-get update
-      sudo apt-get install -y curl
+      sudo apt-get install -y curl build-essential
     else
       echo "FATAL:: Unknown Operating System."
       echo "FATAL:: See list of supported OSes: https://github.com/mrigeshpriyadarshi/bwcvagrant/blob/master/README.md."

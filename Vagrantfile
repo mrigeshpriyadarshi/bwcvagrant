@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 hostname   = ENV['ST2HOSTNAME'] ? ENV['ST2HOSTNAME'] : 'bwcvagrant'
-box        = ENV['ST2BOX'] ? ENV['ST2BOX'] : 'bento/ubuntu-14.04'
+box        = ENV['ST2BOX'] ? ENV['ST2BOX'] : 'ubuntu/trusty64'
 st2user    = ENV['ST2USER'] ? ENV['ST2USER']: 'st2admin'
 st2passwd  = ENV['ST2PASSWORD'] ? ENV['ST2PASSWORD'] : 'Ch@ngeMe'
 bwc_license  = ENV['BWC_LICENSE'] ? ENV['BWC_LICENSE'] : 'bwc_license_key'
@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Box Specifications
     bwc.vm.provider :virtualbox do |vb|
       vb.name = "#{hostname}"
-      vb.memory = 1028
+      vb.memory = 3072
       vb.cpus = 2
     end
 
